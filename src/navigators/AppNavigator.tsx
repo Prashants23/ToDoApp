@@ -1,7 +1,6 @@
 import * as SplashScreen from "expo-splash-screen";
 import { useCallback } from "react";
 import { StyleSheet, View } from "react-native";
-
 import { NavigationContainer } from "@react-navigation/native";
 
 import AuthStackNavigator from "./AuthStackNavigator";
