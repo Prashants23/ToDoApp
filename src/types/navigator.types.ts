@@ -1,6 +1,6 @@
 export type AuthStackParams = {
   LaunchScreen: undefined;
-  NameInputScreen: undefined;
+  EnterNameScreen: undefined;
 };
 export type MainStackParams = {
   HomeScreen: undefined;
