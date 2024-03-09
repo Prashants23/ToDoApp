@@ -28,8 +28,13 @@ yarn-error.*
 .DS_Store
 *.pem
 
-# local env files
-.env*.local
+*.apk
+*.aab
+*.tar.gz
 
 # typescript
 *.tsbuildinfo
+*.apk
+
+# specific to Sumit's workspace as of now xD
+bun.lockb
