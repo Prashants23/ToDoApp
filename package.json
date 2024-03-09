@@ -6,16 +6,26 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "build-android-local-dev-client": "eas build --profile development-client --platform android --local",
+    "build-android-local-dev-release": "eas build --profile development-release --platform android --local",
+    "build-ios-simulator-dev-client": "eas build --profile development-ios-simulator --platform ios --local"
+    
   },
   "dependencies": {
+    "@types/react": "~18.2.45",
     "expo": "~50.0.11",
     "expo-status-bar": "~1.11.1",
     "react": "18.2.0",
     "react-native": "0.73.4"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0"
+    "@babel/core": "^7.20.0",
+    "@types/expo": "^33.0.1",
+    "@types/react-native": "^0.73.0",
+    "eslint": "^8.57.0",
+    "eslint-config-universe": "^12.0.0",
+    "typescript": "^5.4.2"
   },
   "private": true
 }
