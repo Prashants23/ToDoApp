@@ -33,7 +33,7 @@ const {styles} = useStyles(styleSheet)
         value={name}
         onChangeText={handleChange}
       />
-      <Button title="Continue" onPress={onContinue} style={styles.btnStyle} />
+      <Button disabled={!name} title="Continue" onPress={onContinue} style={styles.btnStyle} />
     </SafeAreaView>
   );
 };

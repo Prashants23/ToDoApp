@@ -21,7 +21,7 @@ const LaunchScreen = () => {
         <Text style={styles.title}>Task Tracker</Text>
         <Text style={styles.subTitle}>Stay organized, achieve more</Text>
       </View>
-      <Button title="Get Started" onPress={onGetStarted} style={styles.btnStyle} />
+      <Button  title="Get Started" onPress={onGetStarted} style={styles.btnStyle} />
     </SafeAreaView>
   );
 };

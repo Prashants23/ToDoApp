@@ -14,15 +14,21 @@ const Button = ({
   title,
   onPress,
   textStyle,
+  disabled,
 }: {
   title: string;
+  disabled?: boolean;
   onPress: () => void;
   textStyle?: StyleProp<TextStyle>;
   style?: StyleProp<ViewStyle>;
 }) => {
   const { styles } = useStyles(styleSheet);
   return (
-    <TouchableOpacity style={[styles.btnStyle, style]} onPress={onPress}>
+    <TouchableOpacity
+      style={[styles.pressableContainer(disabled), style]}
+      onPress={onPress}
+      disabled={disabled}
+    >
       <Text style={[styles.btnTextStyle, textStyle]}>{title}</Text>
     </TouchableOpacity>
   );

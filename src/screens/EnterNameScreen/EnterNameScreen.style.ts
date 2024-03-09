@@ -20,7 +20,7 @@ export const styleSheet = createStyleSheet(({ colors, fonts }) => {
     subtitle: {
       fontSize: scale(14),
       fontFamily: fonts.primaryRegular,
-      marginVertical: scale(8),
+      marginVertical: scale(6),
       textAlign: "center",
     },
     input: {
@@ -28,14 +28,17 @@ export const styleSheet = createStyleSheet(({ colors, fonts }) => {
       height: scale(50),
       borderColor: colors.gray300,
       borderWidth: 1,
-      marginBottom: scale(20),
+      marginBottom: scale(100),
       paddingHorizontal: scale(20),
-      marginTop: scale(80),
+      marginTop: scale(40),
       borderRadius: scale(15),
     },
     btnStyle: {
+      position: "absolute",
+      bottom: scale(20),
       marginVertical: scale(10),
       height: scale(50),
+      width: "100%",
     },
     imageContainer: {
       width: scale(120),
