@@ -34,7 +34,7 @@ export const styleSheet = createStyleSheet(({ colors, fonts }) => {
 
     btnStyle: {
       position: "absolute",
-      bottom: scale(40),
+      bottom: scale(30),
     },
   };
 });

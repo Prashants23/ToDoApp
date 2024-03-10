@@ -5,6 +5,7 @@ import { Image } from "expo-image";
 import { useStyles } from "react-native-unistyles";
 import { Button } from '~/components';
 import styleSheet from './EnterNameScreen.style';
+import { useAuthStorage } from '~/storage/useStorageHooks';
 
 const CLOCK_ICON = require("assets/images/clock.svg");
 
@@ -12,6 +13,7 @@ const EnterNameScreen = () => {
   const [name, setName] = useState('');
 
 const {styles} = useStyles(styleSheet)
+const [, setAuthDetails] = useAuthStorage();
 
   const handleChange = (text) => {
     setName(text);
@@ -19,7 +21,12 @@ const {styles} = useStyles(styleSheet)
 
 
   const onContinue=()=>{
-    console.log("submitted Name::", name)
+    setAuthDetails({
+      isAuthenticated: true,
+      tokens: {
+        name:name
+      },
+    });
   }
 
   return (
