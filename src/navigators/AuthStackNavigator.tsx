@@ -16,7 +16,7 @@ const AuthStackNavigator = () => {
   return (
     <AuthStack.Navigator screenOptions={AUTH_STACK_SCREEN_OPTIONS}>
       <AuthStack.Screen name="LaunchScreen" component={LaunchScreen} />
-      <AuthStack.Screen name="NameInputScreen" component={EnterNameScreen} />
+      <AuthStack.Screen name="EnterNameScreen" component={EnterNameScreen} />
     </AuthStack.Navigator>
   );
 };

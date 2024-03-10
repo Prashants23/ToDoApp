@@ -6553,6 +6553,11 @@ react-native-gesture-handler@~2.14.0:
     lodash "^4.17.21"
     prop-types "^15.7.2"
 
+react-native-mmkv@^2.12.1:
+  version "2.12.1"
+  resolved "https://registry.yarnpkg.com/react-native-mmkv/-/react-native-mmkv-2.12.1.tgz#4b5f219bf0965dd676f9e595a3f172d9b61f219d"
+  integrity sha512-VB0JQc4JoEmmeK134skkce0wwNNUPPLfjO1eXM3o5NS8oeutv2mbUzoLYM3o/1wSIJkMETmT2t0JT4S378RZzA==
+
 react-native-reanimated@~3.6.2:
   version "3.6.3"
   resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-3.6.3.tgz#859cf2320e37c80e3a21e19db24f82c34d6d3ded"
@@ -6575,6 +6580,11 @@ react-native-screens@~3.29.0:
   dependencies:
     react-freeze "^1.0.0"
     warn-once "^0.1.0"
+
+react-native-unistyles@^2.0.0-rc.3:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/react-native-unistyles/-/react-native-unistyles-2.4.0.tgz#6622c44a76b77522c8674ba63b1b19d7c1e67a5b"
+  integrity sha512-d38FehTqb05uTSGM6ZV74xFCeWXSoJ4u2WGEZ9k0TaboAOG+CcLWeLPPGABh31MDuUBro11v5sf8RFV+Z+f46A==
 
 react-native@0.73.4:
   version "0.73.4"
