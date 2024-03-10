@@ -23,6 +23,7 @@ interface HeaderProps {
     container?: ViewStyle;
     title?: TextStyle;
   };
+  leftButton?: boolean;
 }
 
 const Header = ({
@@ -30,6 +31,7 @@ const Header = ({
   screenName,
   transparent,
   overrideStyles,
+  leftButton,
 }: HeaderProps) => {
   const navigation = useNavigation();
 
@@ -50,7 +52,6 @@ const Header = ({
     <View
       style={[
         styles.container,
-        // eslint-disable-next-line react-native/no-inline-styles
         {
           backgroundColor: transparent ? colors.transparent : colors.white,
           borderBottomWidth: transparent ? 0 : 1,
@@ -58,18 +59,20 @@ const Header = ({
         overrideStyles?.container,
       ]}
     >
-      <TouchableOpacity
-        onPress={backHandler}
-        hitSlop={{
-          top: 10,
-          bottom: 10,
-          left: 10,
-          right: 10,
-        }}
-      >
-        <Ionicons name="arrow-back" size={32} color="black" />
-      </TouchableOpacity>
-      <Text style={styles.title}>{screenName}</Text>
+      {leftButton && (
+        <TouchableOpacity
+          onPress={backHandler}
+          hitSlop={{
+            top: 10,
+            bottom: 10,
+            left: 10,
+            right: 10,
+          }}
+        >
+          <Ionicons name="arrow-back" size={32} color="black" />
+        </TouchableOpacity>
+      )}
+      <Text style={[styles.title, overrideStyles.title]}>{screenName}</Text>
     </View>
   );
 };

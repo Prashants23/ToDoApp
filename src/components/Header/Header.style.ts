@@ -13,11 +13,13 @@ export const styleSheet = createStyleSheet(({ colors }) => {
     },
 
     title: {
-      marginLeft: scale(12),
+      // marginLeft: scale(12),
       fontWeight: "bold",
       fontSize: scale(20),
       color: colors.black,
-      width: scale(190),
+      // width: scale(190),
+      width: "100%",
+      textAlign: "center",
     },
   };
 });
