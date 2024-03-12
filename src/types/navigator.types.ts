@@ -6,6 +6,7 @@ export type MainStackParams = {
   HomeScreen: undefined;
   CreateEditTaskScreen: {
     taskId: string;
+    dateMap: string;
   };
   ViewAllTasksScreen: undefined;
 };

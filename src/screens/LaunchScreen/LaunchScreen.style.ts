@@ -1,7 +1,6 @@
 import { scale } from "./../../utils/scale.utils";
 import { Dimensions, StyleSheet } from "react-native";
 import { createStyleSheet } from "react-native-unistyles";
-const { width: screenWidth } = Dimensions.get("screen");
 
 export const styleSheet = createStyleSheet(({ colors, fonts }) => {
   return {
@@ -20,12 +19,14 @@ export const styleSheet = createStyleSheet(({ colors, fonts }) => {
       fontWeight: "bold",
       fontFamily: fonts.primaryBold,
       textAlign: "center",
+      color: colors.black,
     },
     subTitle: {
       fontSize: scale(14),
       fontFamily: fonts.primaryRegular,
       marginVertical: scale(8),
       textAlign: "center",
+      color: colors.black,
     },
 
     contentContainer: {
@@ -35,6 +36,7 @@ export const styleSheet = createStyleSheet(({ colors, fonts }) => {
     btnStyle: {
       position: "absolute",
       bottom: scale(30),
+      backgroundColor: colors.lightBlue,
     },
   };
 });

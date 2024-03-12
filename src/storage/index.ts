@@ -16,6 +16,7 @@ const storage = new MMKV();
 
 export const STORAGE_KEYS = {
   AUTH_DETAILS: "authDetails",
+  TODO_LIST_DATA: "todoListData",
 } as const;
 
 const StorageManager = {

@@ -16,12 +16,14 @@ export const styleSheet = createStyleSheet(({ colors, fonts }) => {
       fontFamily: fonts.primaryBold,
       textAlign: "center",
       marginBottom: scale(10),
+      color: colors.black,
     },
     subtitle: {
       fontSize: scale(14),
       fontFamily: fonts.primaryRegular,
       marginVertical: scale(6),
       textAlign: "center",
+      color: colors.black,
     },
     input: {
       width: "90%",
@@ -39,6 +41,7 @@ export const styleSheet = createStyleSheet(({ colors, fonts }) => {
       marginVertical: scale(10),
       height: scale(50),
       width: "100%",
+      backgroundColor: colors.lightBlue,
     },
     imageContainer: {
       width: scale(120),

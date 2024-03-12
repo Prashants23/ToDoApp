@@ -7,12 +7,17 @@ export const palette = {
   gray300: "#CCCCCC",
   gray400: "#ADADAD",
   gray800: "#333333",
+  gray500: "#f1f1f1",
 
   lightBlue400: "#50C2C9",
 
   white: "#ffffff",
   black: "#000000",
   black100: "#00000099",
+  darkBlue: "#141339",
+  purpleBlue: "#9191ed",
+  blue: "#4a3aff",
+  lightBlue: "#008cff",
 
   transparent: "transparent",
 } as const;

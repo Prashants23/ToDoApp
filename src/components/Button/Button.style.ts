@@ -9,7 +9,7 @@ export const styleSheet = createStyleSheet(({ colors, fonts }) => {
       width: "90%",
       height: scale(50),
       borderRadius: 15,
-      backgroundColor: colors.lightBlue400,
+      backgroundColor: colors.purpleBlue,
       ...(disabled && { backgroundColor: colors.gray400 }),
     }),
     btnTextStyle: {

@@ -1,33 +1,30 @@
-
-import React, { useState } from 'react';
-import { Text, TextInput, SafeAreaView } from 'react-native';
+import React, { useState } from "react";
+import { Text, TextInput, SafeAreaView } from "react-native";
 import { Image } from "expo-image";
 import { useStyles } from "react-native-unistyles";
-import { Button } from '~/components';
-import styleSheet from './EnterNameScreen.style';
-import { useAuthStorage } from '~/storage/useStorageHooks';
+import { Button } from "~/components";
+import styleSheet from "./EnterNameScreen.style";
+import { useAuthStorage } from "~/storage/useStorageHooks";
 
 const CLOCK_ICON = require("assets/images/clock.svg");
 
 const EnterNameScreen = () => {
-  const [name, setName] = useState('');
+  const [name, setName] = useState("");
 
-const {styles} = useStyles(styleSheet)
-const [, setAuthDetails] = useAuthStorage();
+  const { styles } = useStyles(styleSheet);
+  const [, setAuthDetails] = useAuthStorage();
 
   const handleChange = (text) => {
     setName(text);
   };
-
-
-  const onContinue=()=>{
+  const onContinue = () => {
     setAuthDetails({
       isAuthenticated: true,
       tokens: {
-        name:name
+        name: name,
       },
     });
-  }
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -40,10 +37,14 @@ const [, setAuthDetails] = useAuthStorage();
         value={name}
         onChangeText={handleChange}
       />
-      <Button disabled={!name} title="Continue" onPress={onContinue} style={styles.btnStyle} />
+      <Button
+        disabled={!name}
+        title="Continue"
+        onPress={onContinue}
+        style={styles.btnStyle}
+      />
     </SafeAreaView>
   );
 };
-
 
 export default EnterNameScreen;
