@@ -5,7 +5,7 @@ import Header from "~/components/Header";
 import { useStyles } from "react-native-unistyles";
 import { styleSheet } from "./HomeScreen.style";
 import { useAuthStorage } from "~/storage/useStorageHooks";
-import { DateTimer, HorizontalDateSelector } from "~/components";
+import { DateTimer, HorizontalDateSelector, TaskCard } from "~/components";
 
 const HomeScreen = () => {
   const { top: safeAreaTop } = useSafeAreaInsets();
@@ -26,8 +26,7 @@ const HomeScreen = () => {
         <DateTimer />
         </View>
         <HorizontalDateSelector initialDate={new Date()} onDateSelected={()=>{console.log('I was clicked')}}/>
-      </View>
-     
+      </View><TaskCard title={''} description='sss' initialState={'pending'} onDelete={()=> console.log('hdh')}/>
     </View>
   );
 };

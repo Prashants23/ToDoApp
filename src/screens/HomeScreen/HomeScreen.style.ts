@@ -5,7 +5,7 @@ export const styleSheet = createStyleSheet(({ colors }) => {
   return {
     container: (safeAreaTop) => ({
       flex: 1,
-      backgroundColor: colors.white,
+      backgroundColor: "#183b63",
       top: safeAreaTop,
       // paddingVertical: scale(50),
       // paddingHorizontal: scale(20),
