@@ -63,5 +63,8 @@ export const styleSheet = createStyleSheet(({ colors }) => {
       color: colors.white,
       textAlign: "center",
     },
+    doneTask: {
+      color: colors.white,
+    },
   };
 });

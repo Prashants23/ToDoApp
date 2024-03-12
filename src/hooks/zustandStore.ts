@@ -39,16 +39,30 @@ const useTodoStore = create<TodoStoreState>((set: SetState<TodoStoreState>) => {
       set({ todos: updatedTodo });
     },
 
-    deleteTodo: (dateMap, taskId) => {
-      const updatedTodo = {
-        ...initialState,
-        [dateMap]: (initialState[dateMap] || []).filter(
-          (task) => task.taskId !== taskId
-        ),
-      };
-      storage.set("todoListData", JSON.stringify(updatedTodo));
-      set({ todos: updatedTodo });
-    },
+    // deleteTodo: (dateMap, taskId) => {
+    //   const updatedTodo = {
+    //     ...initialState,
+    //     [dateMap]: (initialState[dateMap] || []).filter(
+    //       (task) => task.taskId !== taskId
+    //     ),
+    //   };
+    //   storage.set("todoListData", JSON.stringify(updatedTodo));
+    //   set({ todos: updatedTodo });
+    // },
+
+    deleteTodo: (dateMap, taskId) =>
+      set((state) => {
+        const updatedTodo = {
+          todo: {
+            ...state.todos.todo,
+            [dateMap]: state?.todos.todo?.[dateMap]?.filter(
+              (task) => task.taskId !== taskId
+            ),
+          },
+        };
+        storage.set("todoListData", JSON.stringify(updatedTodo));
+        return { todos: updatedTodo };
+      }),
 
     markComplete: (dateMap, taskId, newStatus) =>
       set((state) => {

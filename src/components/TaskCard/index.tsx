@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import { Swipeable } from "react-native-gesture-handler";
 import { useStyles } from "react-native-unistyles";
-import Ionicons from "@expo/vector-icons/Ionicons";
+import Ionicons from "@expo/vector-icons/MaterialIcons";
 import Animated, {
   Easing,
   useDerivedValue,
@@ -20,16 +20,16 @@ const TaskCard = ({
   onDelete,
   initialState,
 }: TaskCardProps) => {
-  const { styles, theme } = useStyles(styleSheet);
+  const {
+    styles,
+    theme: { colors },
+  } = useStyles(styleSheet);
 
   const bgColor = useDerivedValue(() => {
-    return withTiming(
-      initialState ? theme.colors.lightBlue : theme.colors.white,
-      {
-        duration: 500,
-        easing: Easing.linear,
-      }
-    );
+    return withTiming(initialState ? colors.lightBlue : colors.white, {
+      duration: 500,
+      easing: Easing.linear,
+    });
   });
   const animatedStyle = useAnimatedStyle(() => {
     return {
@@ -38,7 +38,7 @@ const TaskCard = ({
   });
 
   const toggleTaskState = () => {
-    onStatusToggle(initialState === "pending");
+    onStatusToggle(!initialState);
   };
 
   const renderRightActions = () => (
@@ -53,24 +53,32 @@ const TaskCard = ({
       onSwipeableRightOpen={onDelete}
     >
       <Animated.View style={[styles.container, animatedStyle]}>
-        <TouchableOpacity onPress={toggleTaskState} style={styles.toggleButton}>
+        <TouchableOpacity
+          onPress={toggleTaskState}
+          style={styles.toggleButton}
+          hitSlop={{ bottom: 10, top: 10, left: 10, right: 10 }}
+        >
           <Ionicons
-            name={initialState ? "checkmark-done-circle" : "checkbox-outline"}
+            name={initialState ? "check-circle" : "circle"}
             size={24}
-            color={initialState ? "green" : "#ccc"}
+            color={initialState ? colors.white : colors.gray800}
           />
         </TouchableOpacity>
         <View style={styles.content}>
           <View style={styles.categoryButton}>
             <Text style={styles.categoryText}>{category}</Text>
           </View>
-          <Text ellipsizeMode="tail" numberOfLines={3} style={styles.title}>
+          <Text
+            ellipsizeMode="tail"
+            numberOfLines={3}
+            style={[styles.title, initialState && styles.doneTask]}
+          >
             {name}
           </Text>
           <Text
             numberOfLines={2}
             ellipsizeMode="tail"
-            style={styles.description}
+            style={[styles.description, initialState && styles.doneTask]}
           >
             {description}
           </Text>

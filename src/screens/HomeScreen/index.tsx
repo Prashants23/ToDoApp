@@ -96,9 +96,9 @@ const TaskItem = ({ item, formattedDate, markComplete, deleteTodo }) => {
         description={item.description}
         initialState={item.status}
         onDelete={() => deleteTodo(formattedDate, item.taskId)}
-        onStatusToggle={(data) =>
-          markComplete(formattedDate, item.taskId, data)
-        }
+        onStatusToggle={(data) => {
+          return markComplete(formattedDate, item.taskId, data);
+        }}
       />
     </TouchableOpacity>
   );
