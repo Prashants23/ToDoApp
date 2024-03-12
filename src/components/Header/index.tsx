@@ -1,22 +1,13 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
+import { View, TouchableOpacity, Text } from "react-native";
 import { ViewStyle, TextStyle } from "react-native";
 import { useStyles } from "react-native-unistyles";
-import Ionicons from "@expo/vector-icons/Ionicons";
+import Ionicons from "@expo/vector-icons/Entypo";
 import { styleSheet } from "./Header.style";
-
-/**
- * The props for the Header component.
- */
 interface HeaderProps {
-  /**
-   * A function that will be called when the back button is pressed.
-   */
   onPressBack?: () => void;
-  /**
-   * The name of the screen to display in the header.
-   */
+
   screenName?: string;
   transparent?: boolean;
   overrideStyles?: {
@@ -40,7 +31,6 @@ const Header = ({
     theme: { colors },
   } = useStyles(styleSheet);
 
-  // If any override backPress function is passed, use that, otherwise use the default back handler
   const backHandler = () => {
     if (typeof onPressBack === "function") {
       onPressBack();
@@ -56,12 +46,13 @@ const Header = ({
           backgroundColor: transparent ? colors.transparent : colors.white,
           borderBottomWidth: transparent ? 0 : 1,
         },
-        overrideStyles?.container,
+        // overrideStyles?.container,
       ]}
     >
       {leftButton && (
         <TouchableOpacity
           onPress={backHandler}
+          style={styles.iconStyle}
           hitSlop={{
             top: 10,
             bottom: 10,
@@ -69,10 +60,10 @@ const Header = ({
             right: 10,
           }}
         >
-          <Ionicons name="arrow-back" size={32} color="black" />
+          <Ionicons name="chevron-left" size={20} color={colors.gray800} />
         </TouchableOpacity>
       )}
-      <Text style={[styles.title, overrideStyles.title]}>{screenName}</Text>
+      <Text style={[styles.title, overrideStyles?.title]}>{screenName}</Text>
     </View>
   );
 };

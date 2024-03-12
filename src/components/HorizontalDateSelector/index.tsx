@@ -1,24 +1,32 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, memo } from "react";
 import { View, Text, TouchableOpacity, FlatList } from "react-native";
 import moment from "moment";
 import { useStyles } from "react-native-unistyles";
 import { styleSheet } from "./HorizontalDateSelector.style";
+import { generateDates } from "~/utils/helpers";
 
-const HorizontalDateSelector = ({
+interface HorizontalDateSelectorProps {
+  onDateSelected: (date: Date) => void;
+  initialDate?: Date;
+  disabled?: boolean;
+}
+
+const HorizontalDateSelector: React.FC<HorizontalDateSelectorProps> = ({
   onDateSelected,
   initialDate = new Date(),
+  disabled,
 }) => {
   const [selectedDate, setSelectedDate] = useState(initialDate);
-  const [dates, setDates] = useState([]);
-  const [currentMonth, setCurrentMonth] = useState(
+  const [dates, setDates] = useState<Date[]>([]);
+  const [currentMonth, setCurrentMonth] = useState<number>(
     moment(selectedDate).month()
   );
   const { styles } = useStyles(styleSheet);
-  const flatListRef = useRef(null);
+  const flatListRef = useRef<FlatList>(null);
 
+  // /@todo: improve this scroll to index issue
   useEffect(() => {
     const initialDates = generateDates(selectedDate);
-
     setDates(initialDates);
 
     setTimeout(() => {
@@ -32,32 +40,15 @@ const HorizontalDateSelector = ({
           index: indexToScrollTo,
         });
       }
-    }, 500);
+    }, 1000);
   }, []);
 
-  const handleDatePress = (date) => {
+  const handleDatePress = (date: Date) => {
     setSelectedDate(date);
     onDateSelected(date);
   };
 
-  const generateDates = (centerDate) => {
-    const datesArray = [];
-    const month = moment(centerDate).month();
-    const year = moment(centerDate).year();
-    const firstDay = moment([year, month]).startOf("month").toDate();
-    const lastDay = moment([year, month]).endOf("month").toDate();
-    for (
-      let date = firstDay;
-      date <= lastDay;
-      date = moment(date).add(1, "days").toDate()
-    ) {
-      datesArray.push(date);
-    }
-
-    return datesArray;
-  };
-
-  const renderMonthButton = (direction) => {
+  const renderMonthButton = (direction: "prev" | "next") => {
     const isDisabled = direction === "prev" && currentMonth === 0;
     const isDisabledStyle = isDisabled ? { opacity: 0.5 } : {};
 
@@ -85,13 +76,14 @@ const HorizontalDateSelector = ({
     );
   };
 
-  const renderItem = ({ item }) => (
+  const renderItem = ({ item }: { item: Date }) => (
     <TouchableOpacity
       style={[
         styles.dateItem,
         moment(selectedDate).isSame(item, "day") && styles.selected,
       ]}
       onPress={() => handleDatePress(item)}
+      disabled={disabled}
     >
       <Text
         style={[
@@ -114,13 +106,13 @@ const HorizontalDateSelector = ({
 
   return (
     <View style={styles.container}>
-      <View style={styles.monthControl}>
+      {/* <View style={styles.monthControl}>
         {renderMonthButton("prev")}
         <Text style={styles.currentMonth}>
           {moment(selectedDate).format("MMMM YYYY")}
         </Text>
         {renderMonthButton("next")}
-      </View>
+      </View> */}
       <FlatList
         ref={flatListRef}
         data={dates}
@@ -134,4 +126,4 @@ const HorizontalDateSelector = ({
   );
 };
 
-export default HorizontalDateSelector;
+export default memo(HorizontalDateSelector);

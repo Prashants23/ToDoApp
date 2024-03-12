@@ -17,6 +17,7 @@ export const palette = {
   darkBlue: "#141339",
   purpleBlue: "#9191ed",
   blue: "#4a3aff",
+  lightBlue: "#008cff",
 
   transparent: "transparent",
 } as const;

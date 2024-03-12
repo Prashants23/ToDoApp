@@ -8,14 +8,15 @@ export const styleSheet = createStyleSheet(({ colors }) => {
       padding: 20,
       marginBottom: 10,
       borderRadius: 10,
-      borderWidth: 1,
-      borderColor: "#ccc",
-      alignItems: "center",
-      width: "90%",
+      borderWidth: 0.7,
+      borderColor: colors.gray300,
+      width: scale(150),
+      height: scale(160),
+      backgroundColor: colors.white,
     },
     toggleButton: {
       position: "absolute",
-      top: 10,
+      top: 20,
       right: 10,
     },
     content: {
@@ -32,8 +33,8 @@ export const styleSheet = createStyleSheet(({ colors }) => {
       marginBottom: 5,
     },
     description: {
-      fontSize: 16,
-      color: "#555",
+      fontSize: 14,
+      color: colors.black100,
     },
     deleteButton: {
       backgroundColor: "#ff6347",
@@ -45,8 +46,22 @@ export const styleSheet = createStyleSheet(({ colors }) => {
       borderRadius: 10,
     },
     deleteButtonText: {
-      color: "#fff",
+      color: colors.white,
       fontWeight: "bold",
+    },
+    categoryButton: {
+      padding: scale(5),
+      borderRadius: scale(8),
+      marginRight: scale(10),
+      marginBottom: scale(10),
+      width: scale(60),
+      elevation: 4,
+      backgroundColor: colors.lightBlue,
+    },
+    categoryText: {
+      fontSize: scale(10),
+      color: colors.white,
+      textAlign: "center",
     },
   };
 });

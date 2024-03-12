@@ -11,14 +11,21 @@ export const styleSheet = createStyleSheet(({ colors }) => {
       borderBottomColor: colors.gray200,
       borderBottomWidth: 1,
     },
+    iconStyle: {
+      backgroundColor: colors.gray500,
+      marginRight: scale(10),
+      paddingHorizontal: scale(3),
+      paddingVertical: scale(4),
+      borderRadius: scale(8),
+      justifyContent: "center",
+      alignItems: "center",
+    },
 
     title: {
-      // marginLeft: scale(12),
       fontWeight: "bold",
-      fontSize: scale(20),
-      color: colors.black,
-      // width: scale(190),
-      width: "100%",
+      fontSize: scale(16),
+      color: colors.gray800,
+      width: "80%",
       textAlign: "center",
     },
   };

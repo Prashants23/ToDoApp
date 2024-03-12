@@ -40,7 +40,7 @@ export const styleSheet = createStyleSheet(({ colors }) => {
       backgroundColor: colors.white,
     },
     selected: {
-      backgroundColor: colors.blue,
+      backgroundColor: colors.lightBlue,
     },
     dateText: {
       fontSize: scale(12),

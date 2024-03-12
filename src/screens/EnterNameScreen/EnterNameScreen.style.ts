@@ -41,6 +41,7 @@ export const styleSheet = createStyleSheet(({ colors, fonts }) => {
       marginVertical: scale(10),
       height: scale(50),
       width: "100%",
+      backgroundColor: colors.lightBlue,
     },
     imageContainer: {
       width: scale(120),

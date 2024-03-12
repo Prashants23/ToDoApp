@@ -1,7 +1,6 @@
 import { scale } from "./../../utils/scale.utils";
 import { Dimensions, StyleSheet } from "react-native";
 import { createStyleSheet } from "react-native-unistyles";
-const { width: screenWidth } = Dimensions.get("screen");
 
 export const styleSheet = createStyleSheet(({ colors, fonts }) => {
   return {
@@ -37,7 +36,7 @@ export const styleSheet = createStyleSheet(({ colors, fonts }) => {
     btnStyle: {
       position: "absolute",
       bottom: scale(30),
-      backgroundColor: colors.purpleBlue,
+      backgroundColor: colors.lightBlue,
     },
   };
 });
