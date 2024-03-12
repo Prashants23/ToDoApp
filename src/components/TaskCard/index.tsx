@@ -31,7 +31,6 @@ const TaskCard = ({
       }
     );
   });
-  console.log("initi", initialState);
   const animatedStyle = useAnimatedStyle(() => {
     return {
       backgroundColor: bgColor.value,

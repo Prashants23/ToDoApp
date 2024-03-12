@@ -4,7 +4,7 @@
   },
   "build": {
     "development-release": {
-      "developmentClient": true,
+      "developmentClient": false,
       "distribution": "internal",
       "env": {
         "APP_VARIANT": "development"
